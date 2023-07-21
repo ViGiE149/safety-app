@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-avatar>
+        <img [src]="profilePicture" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ firstName }} </h2>
+        <p>{{ phoneNumber }}</p>
+      </ion-label>
+    </ion-card-content>
+  </ion-card>
+
+
+    <ion-list><ion-item>Emergency Information<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+ 
+
+    <ion-list><ion-item>Location Settings<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+
+    <ion-list><ion-item>Manage Device<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+
+    <ion-list><ion-item>Tell your Friends<ion-icon  slot="end" name="share-social"></ion-icon></ion-item></ion-list>
+    <ion-list><ion-item>App permitions<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+    
+    <ion-list><ion-item>FAQs<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+
+    <ion-list><ion-item>Terms and Conditions<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+
+    <ion-list><ion-item>Email Support<ion-icon slot="end" name="mail"></ion-icon></ion-item></ion-list>
+    
+    
+
+    <ion-button color="dark"  expand="full" fill="outline" style="margin: 30px 0; color: red;">Sign Out</ion-button>
+    
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="megaphone"></ion-icon>
+ 
+    </ion-tab-button>
+    <ion-tab-button tab="radio">
+      <ion-icon name="location"></ion-icon>
+
+
+    </ion-tab-button>
+    
+      <ion-tab-button tab="library">
+        <ion-icon name="power"></ion-icon>
+
+      </ion-tab-button>
+
+
+    <ion-tab-button tab="library">
+      <ion-icon name="people"></ion-icon>
+
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon name="person"></ion-icon>
+    
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>locationSettings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-radio-group [(ngModel)]="locationAccuracy">
+      <ion-list-header>
+        Location Accuracy
+      </ion-list-header>
+ 
+  
+      <ion-item>
+        
+        <ion-label>High Accuracy</ion-label>
+        <ion-label>recommended if you want know where you are</ion-label>
+        <ion-radio slot="start" value="high"></ion-radio>
+      </ion-item>
+   
+      <ion-item>
+        <ion-label>Balanced</ion-label>
+        <ion-radio slot="start" value="balanced"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Off</ion-label>
+        <ion-radio slot="start" value="off"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  
+</ion-content>

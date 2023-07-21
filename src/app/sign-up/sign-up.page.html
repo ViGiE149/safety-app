@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Profile Picture</ion-label>
+      <ion-button (click)="takePicture()">Take Picture</ion-button>
+      <img [src]="profilePicture" *ngIf="profilePicture" />
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-label position="stacked">First Name</ion-label>
+    <ion-input [(ngModel)]="firstName" type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Last Name</ion-label>
+    <ion-input [(ngModel)]="lastName" type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input [(ngModel)]="email" type="email" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Phone Number</ion-label>
+    <ion-input [(ngModel)]="phoneNumber" type="tel" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input [(ngModel)]="password" type="password" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Confirm Password</ion-label>
+    <ion-input [(ngModel)]="confirmPassword" type="password" required></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="register()">Register</ion-button>
+
+  <ion-button expand="full" color="medium" routerLink="/sign-in">Already have an account? Login</ion-button>
+</ion-content>

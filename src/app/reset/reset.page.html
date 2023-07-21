@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reset Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input [(ngModel)]="email" type="email" required></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="resetPassword()">Reset Password</ion-button>
+</ion-content>
+
