@@ -34,7 +34,7 @@ export class SignInPage implements OnInit {
       .signInWithEmailAndPassword(this.email, this.password)
       .then((userCredential) => {
         loader.dismiss();
-        this.navCtrl.navigateForward('/dashboard-admin');
+        this.navCtrl.navigateForward('/personal-details');
         this.presentToast();
       })
       .catch((error: any) => {

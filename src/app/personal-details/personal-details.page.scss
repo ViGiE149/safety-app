@@ -1,0 +1,35 @@
+.fab{
+    text-align: center;
+ width: 86%;
+}
+
+.circular-fab-list {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-fab-list:nth-child(5) {
+  transform: translateX(-35%);
+}
+
+.circular-fab-list:nth-child(2) {
+  transform: translateY(-30%);
+}
+.circular-fab-list:nth-child(2) {
+    transform: translateX(-50%);
+  }
+
+.circular-fab-list:nth-child(3) {
+  transform: translateX(50%);
+}
+
+.circular-fab-list:nth-child(4) {
+  transform: translateY(-230%);
+}
+.circular-fab-list:nth-child(4) {
+   margin-left: 30px;
+  }
+
+  

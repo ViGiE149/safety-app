@@ -43,30 +43,45 @@
     
 </ion-content>
 <ion-footer>
+  <div class="fab">
+    <ion-fab>
+      <ion-fab-button color="secondary">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    
+      <ng-container *ngFor="let direction of directions">
+        <ion-fab-list [side]="direction" class="circular-fab-list">
+          <ion-fab-button [color]="getColor(direction)">
+            <ion-icon [name]="getIcon(direction)"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ng-container>
+    </ion-fab>
+    
+</div>
   <ion-toolbar>
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home">
+    <ion-tab-button >
       <ion-icon name="megaphone"></ion-icon>
  
     </ion-tab-button>
-    <ion-tab-button tab="radio">
+    <ion-tab-button >
       <ion-icon name="location"></ion-icon>
 
 
     </ion-tab-button>
     
-      <ion-tab-button tab="library">
-        <ion-icon name="power"></ion-icon>
-
+      <ion-tab-button >
+       
       </ion-tab-button>
 
 
-    <ion-tab-button tab="library">
+    <ion-tab-button >
       <ion-icon name="people"></ion-icon>
 
     </ion-tab-button>
-    <ion-tab-button tab="search">
+    <ion-tab-button >
       <ion-icon name="person"></ion-icon>
     
     </ion-tab-button>
