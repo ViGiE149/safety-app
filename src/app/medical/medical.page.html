@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons (click)="saveMedicalInfo()" slot="end">
+      SAVE
+    </ion-buttons>
+    <ion-title>medical</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>Do you have medical insurance?</ion-label>
+      <ion-toggle [(ngModel)]="hasMedicalInsurance"></ion-toggle>
+    </ion-item>
+
+    <ng-container *ngIf="hasMedicalInsurance">
+      <ion-item>
+        <ion-label position="stacked">Insurance Scheme</ion-label>
+        <ion-input [(ngModel)]="insuranceScheme" placeholder="Insurance Scheme"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Insurance Plan</ion-label>
+        <ion-input [(ngModel)]="insurancePlan" placeholder="Insurance Plan"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Membership Number</ion-label>
+        <ion-input [(ngModel)]="membershipNumber" placeholder="Membership Number"></ion-input>
+      </ion-item>
+    </ng-container>
+
+    <ion-item>
+      <ion-label>Blood Type</ion-label>
+      <ion-select [(ngModel)]="bloodType" placeholder="Select Blood Type">
+        <ion-select-option value="A+">A+</ion-select-option>
+        <ion-select-option value="A-">A-</ion-select-option>
+        <ion-select-option value="B+">B+</ion-select-option>
+        <ion-select-option value="B-">B-</ion-select-option>
+        <ion-select-option value="O+">O+</ion-select-option>
+        <ion-select-option value="O-">O-</ion-select-option>
+        <ion-select-option value="AB+">AB+</ion-select-option>
+        <ion-select-option value="AB-">AB-</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Do you have any medical conditions that responders should know about?</ion-label>
+      <ion-toggle [(ngModel)]="hasMedicalConditions"></ion-toggle>
+    </ion-item>
+
+    <ng-container *ngIf="hasMedicalConditions">
+      <ion-item>
+        <ion-label position="stacked">Medical Conditions</ion-label>
+        <ion-textarea [(ngModel)]="medicalConditions" placeholder="Enter Medical Conditions"></ion-textarea>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <!-- <ion-button expand="full" (click)="saveMedicalInfo()">Save Medical Information</ion-button> -->
+</ion-content>
+

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'sign-in',
+    redirectTo: 'wellcome',
     pathMatch: 'full'
   },
   {
@@ -39,6 +39,39 @@ const routes: Routes = [
     path: 'location-settings',
     loadChildren: () => import('./location-settings/location-settings.module').then( m => m.LocationSettingsPageModule)
   },
+  {
+    path: 'email-support',
+    loadChildren: () => import('./email-support/email-support.module').then( m => m.EmailSupportPageModule)
+  },
+  {
+    path: 'faq',
+    loadChildren: () => import('./faq/faq.module').then( m => m.FaqPageModule)
+  },
+  {
+    path: 'term-and-conditions',
+    loadChildren: () => import('./term-and-conditions/term-and-conditions.module').then( m => m.TermAndConditionsPageModule)
+  },  {
+    path: 'communities',
+    loadChildren: () => import('./communities/communities.module').then( m => m.CommunitiesPageModule)
+  },
+  {
+    path: 'emergency-information',
+    loadChildren: () => import('./emergency-information/emergency-information.module').then( m => m.EmergencyInformationPageModule)
+  },
+  {
+    path: 'about-me',
+    loadChildren: () => import('./about-me/about-me.module').then( m => m.AboutMePageModule)
+  },
+  {
+    path: 'medical',
+    loadChildren: () => import('./medical/medical.module').then( m => m.MedicalPageModule)
+  },
+  {
+    path: 'addresses',
+    loadChildren: () => import('./addresses/addresses.module').then( m => m.AddressesPageModule)
+  },
+
+
 ];
 
 @NgModule({

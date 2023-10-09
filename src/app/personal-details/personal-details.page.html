@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+   
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,29 +11,29 @@
       <ion-avatar>
         <img [src]="profilePicture" />
       </ion-avatar>
-      <ion-label>
-        <h2>{{ firstName }} </h2>
-        <p>{{ phoneNumber }}</p>
+      <ion-label *ngFor="let item of tableData">
+        <h2>{{ item.firstName }} </h2>
+        <p>{{ item.phoneNumber }}</p>
       </ion-label>
     </ion-card-content>
   </ion-card>
 
 
-    <ion-list><ion-item>Emergency Information<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+    <ion-list><ion-item (click)="goToEmergencyInfor()">Emergency Information<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
  
 
-    <ion-list><ion-item>Location Settings<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+    <ion-list><ion-item (click)="goToLctSettings()">Location Settings<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
 
     <ion-list><ion-item>Manage Device<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
 
-    <ion-list><ion-item>Tell your Friends<ion-icon  slot="end" name="share-social"></ion-icon></ion-item></ion-list>
+    <ion-list><ion-item (click)="shareWithFriends()">Tell your Friends<ion-icon  slot="end" name="share-social"></ion-icon></ion-item></ion-list>
     <ion-list><ion-item>App permitions<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
     
-    <ion-list><ion-item>FAQs<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+    <ion-list><ion-item (click)="goToFaq()">FAQs<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
 
-    <ion-list><ion-item>Terms and Conditions<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
+    <ion-list><ion-item (click)="goToTAC()">Terms and Conditions<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item></ion-list>
 
-    <ion-list><ion-item>Email Support<ion-icon slot="end" name="mail"></ion-icon></ion-item></ion-list>
+    <ion-list ><ion-item (click)="goToEmailSupport()">Email Support<ion-icon slot="end" name="mail" ></ion-icon></ion-item></ion-list>
     
     
 
@@ -46,19 +44,43 @@
   <div class="fab">
     <ion-fab>
       <ion-fab-button color="secondary">
-        <ion-icon name="add"></ion-icon>
+        <ion-icon name="push-outline"></ion-icon>
       </ion-fab-button>
+  
+      <ng-container >
     
-      <ng-container *ngFor="let direction of directions">
-        <ion-fab-list [side]="direction" class="circular-fab-list">
-          <ion-fab-button [color]="getColor(direction)">
-            <ion-icon [name]="getIcon(direction)"></ion-icon>
+        <ion-fab-list class="circular-fab-list" side="top">
+          <ion-fab-button color="primary" (click)="callNumber()">
+          
+            <ion-icon name="shield-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list class="circular-fab-list" side="end">
+          <ion-fab-button color="tertiary">
+            <ion-icon name="chevron-forward"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button color="success">
+            <ion-icon name="chevron-forward"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list class="circular-fab-list" side="bottom">
+          <ion-fab-button color="warning">
+            <ion-icon name="chevron-down"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list class="circular-fab-list" side="start">
+          <ion-fab-button color="danger">
+            <ion-icon name="chevron-back"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button class="circular-fab-list" color="dark">
+            <ion-icon name="chevron-back"></ion-icon>
           </ion-fab-button>
         </ion-fab-list>
       </ng-container>
     </ion-fab>
-    
-</div>
+  </div>
+  
+  
   <ion-toolbar>
 <ion-tabs>
   <ion-tab-bar slot="bottom">
@@ -66,7 +88,7 @@
       <ion-icon name="megaphone"></ion-icon>
  
     </ion-tab-button>
-    <ion-tab-button >
+    <ion-tab-button routerLink="/location">
       <ion-icon name="location"></ion-icon>
 
 

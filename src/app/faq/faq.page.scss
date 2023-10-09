@@ -1,0 +1,35 @@
+/* src/app/faq/faq.component.scss */
+
+ion-content {
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  
+  ion-list {
+    margin-top: 16px;
+  }
+  
+  ion-item {
+    border-bottom: 1px solid #dee2e6; /* Light border color */
+  }
+  
+  h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #343a40; /* Dark text color */
+  }
+  
+  p {
+    color: #495057; /* Slightly darker text color */
+    font-size: 16px;
+    margin-bottom: 16px;
+    overflow-wrap: break-word;
+  }
+  div{
+    overflow: none;
+  }
+  
+  /* Optional: Add some padding to the content */
+  ion-content {
+    padding: 16px;
+  }
+  

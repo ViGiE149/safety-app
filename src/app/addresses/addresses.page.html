@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons (click)="saveAddressInfo()" slot="end">
+      SAVE
+    </ion-buttons>
+    <ion-title>addresses</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Home Address</ion-label>
+      <ion-textarea [(ngModel)]="homeAddress" placeholder="Enter Home Address"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Work Address</ion-label>
+      <ion-textarea [(ngModel)]="workAddress" placeholder="Enter Work Address"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+
+    <ion-card *ngFor="let address of addresses">
+      <ion-label>Home Address:</ion-label>
+      <ion-text>{{address.homeAddress}}</ion-text>
+    </ion-card>
+
+    <ion-card *ngFor="let address of addresses">
+      <ion-label>Work Address:</ion-label>
+      <ion-text >{{address.workAddress}}</ion-text>
+    </ion-card>
+
+  <!-- <ion-button expand="full" >Save Address Information</ion-button> -->
+</ion-content>

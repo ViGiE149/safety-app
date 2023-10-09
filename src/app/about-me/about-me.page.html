@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons (click)="saveProfile()" slot="end">
+      SAVE
+    </ion-buttons>
+    <ion-title>aboutMe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Full Name</ion-label>
+      <ion-input [(ngModel)]="fullName" placeholder="Your Full Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Gender</ion-label>
+      <ion-select [(ngModel)]="gender" placeholder="Select Gender">
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Next of Kin Name</ion-label>
+      <ion-input [(ngModel)]="nextOfKinName" placeholder="Next of Kin's Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Next of Kin Phone Number</ion-label>
+      <ion-input [(ngModel)]="nextOfKinNumber" type="tel" placeholder="Next of Kin's Phone Number"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-button expand="full" (click)="saveProfile()">Save Profile</ion-button> -->
+</ion-content>

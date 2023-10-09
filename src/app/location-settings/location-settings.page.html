@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
     <ion-title>locationSettings</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,22 +15,40 @@
       </ion-list-header>
  
   
-      <ion-item>
+      <ion-list>
+        <ion-radio slot="start" value="high">High Accuracy</ion-radio>
+        <ion-card>
+          <ion-card-content> 
+          High Accuracy
+          Recommended if you want your loved ones to know where you are.
+          </ion-card-content> 
+      </ion-card>
+      </ion-list>
+   <hr>
+      <ion-list>
+        <ion-radio slot="start" value="balanced">High Accuracy</ion-radio>
+        <ion-card>
         
-        <ion-label>High Accuracy</ion-label>
-        <ion-label>recommended if you want know where you are</ion-label>
-        <ion-radio slot="start" value="high"></ion-radio>
-      </ion-item>
-   
-      <ion-item>
-        <ion-label>Balanced</ion-label>
-        <ion-radio slot="start" value="balanced"></ion-radio>
-      </ion-item>
-  
-      <ion-item>
-        <ion-label>Off</ion-label>
-        <ion-radio slot="start" value="off"></ion-radio>
-      </ion-item>
+        <ion-card-content>                                                   
+          The app will not use your location when the app is not open.
+          Note that only you and contacts you share location with have
+          access to your real-time location, and Emergency101 operators
+          can only see your location during an active SOS.
+        </ion-card-content> 
+       </ion-card>
+      </ion-list>
+  <hr>
+      <ion-list>
+        <ion-radio slot="start" value="off">Off</ion-radio><br>
+        <ion-card>
+        <ion-card-content>                                                           
+          The app will not use your location when the app is not open.
+          Note that only you and contacts you share location with have
+          access to your real-time location, and Emergency101 operators
+          can only see your location during an active SOS.
+        </ion-card-content> 
+       </ion-card>
+      </ion-list>
     </ion-radio-group>
   </ion-list>
   

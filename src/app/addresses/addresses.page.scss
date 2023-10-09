@@ -1,0 +1,22 @@
+ion-content {
+    --ion-background-color: #f5f5f5; /* Set the background color */
+  
+    ion-list {
+      ion-item {
+        ion-label {
+          font-weight: bold;
+        }
+  
+        ion-textarea {
+          min-height: 100px; /* Set a minimum height for the text area */
+        }
+      }
+  
+      ion-button {
+        margin-top: 20px; /* Add margin at the top of the button */
+      }
+    }
+  }
+  ion-card{
+    padding:15px;
+  }

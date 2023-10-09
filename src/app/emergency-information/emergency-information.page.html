@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
+    <ion-title>emergencyInformation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+<ion-item (click)="goToAboutMe()">About me<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item>
+<ion-item (click)="goToMedical()">Medical<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item>
+<ion-item (click)="goToAddresses()">Addresses<ion-icon slot="end" name="chevron-forward"></ion-icon></ion-item>
+</ion-list>
+<ion-card>
+  <ion-card-title>
+   Your data is safe with Us
+  </ion-card-title>
+  <ion-card-content>
+Your Data Is Safe With Us
+This information helps us get you the best and fastest.
+emergency responce when you need it.
+All emergency information is stored encrypted.
+It is only decrypted and.
+made available to our team and relevant first responders
+when you request emergency assistance.
+Personally identifiable information is never used or
+disclosed for any other reason.
+  </ion-card-content>
+</ion-card>
+</ion-content>

@@ -1,13 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>wellcome</ion-title>
-  </ion-toolbar>
-</ion-header>
+\
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">wellcome</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="container">
+  <div class="image-container">
+    <img src="../../assets/wellcome.jpeg" alt="Welcome Image" />
+  </div>
+  <div class="welcome-message">
+    <h1>Welcome to Our App</h1>
+    <p>Your awesome and modern app description goes here.</p>
+    <ion-button expand="full" routerLink="/sign-in">Sign In</ion-button>
+  </div>
+ </div>
 </ion-content>

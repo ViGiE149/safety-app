@@ -57,14 +57,14 @@ export class SignUpPage implements OnInit {
       .createUserWithEmailAndPassword(this.email, this.password)
       .then(async (userCredential) => {
         const loader = await this.loadingController.create({
-          message: 'Submitting Confession',
+          message: 'Registring YOU...',
           cssClass: 'custom-loader-class',
         });
         await loader.present();
 
         this.db
-          .collection('users')
-          .add({
+          .collection('users').doc(this.email)
+          .set({
             email: this.email,
             firstName: this.firstName,
             lastName: this.lastName,
@@ -73,7 +73,7 @@ export class SignUpPage implements OnInit {
           })
           .then(() => {
             loader.dismiss();
-            this.navCtrl.navigateForward('/dashboard-admin');
+            this.navCtrl.navigateForward('/sign-in');
           })
           .catch((error) => {
             loader.dismiss();

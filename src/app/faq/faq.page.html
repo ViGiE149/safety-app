@@ -1,0 +1,22 @@
+<!-- src/app/faq/faq.component.html -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Frequently Asked Questions</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let faq of faqs">
+      <ion-label>
+        <h2>{{ faq.question }}</h2>
+       <div><p>{{ faq.answer }}</p></div> 
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
