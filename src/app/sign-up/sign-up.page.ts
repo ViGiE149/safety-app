@@ -24,52 +24,84 @@ export class SignUpPage implements OnInit {
   password = '';
   confirmPassword = '';
   profilePicture = '';
-  profilePictureUrl='';
-
+  profilePictureUrl:any;
+  image: any;
   constructor(
     public navCtrl: NavController,
     private router: Router,
     private auth: AngularFireAuth,
     private toastController: ToastController,
     private loadingController: LoadingController,
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private storage: AngularFireStorage
   ) {}
 
   ngOnInit() {}
 
   async takePicture() {
-    const image = await Camera.getPhoto({
+    this.image = await Camera.getPhoto({
       quality: 90,
       allowEditing: false,
-      resultType: CameraResultType.DataUrl,
+      resultType: CameraResultType.Base64,
       source: CameraSource.Camera,
     });
+
+    this.profilePicture = `data:image/jpeg;base64,${this.image.base64String}`;
   }
 
-  register() {
+   async uploadImage(file: string) {
+    const fileName = `${this.email}_`+Date.now().toString();
+    const filePath = `images/${fileName}`;
+    const fileRef = this.storage.ref(filePath);
+
+    const uploadTask = fileRef.putString(file, 'base64', {
+      contentType: 'image/jpeg',
+    });
+    const snapshot = await uploadTask;
+
+    return snapshot.ref.getDownloadURL();
+  }
+  // dataURItoBlob(dataURI: string) {
+  //   const byteString = atob(dataURI.split(',')[1]);
+  //   const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+  //   const ab = new ArrayBuffer(byteString.length);
+  //   const ia = new Uint8Array(ab);
+
+  //   for (let i = 0; i < byteString.length; i++) {
+  //     ia[i] = byteString.charCodeAt(i);
+  //   }
+
+  //   return new Blob([ab], { type: mimeString });
+  // }
+
+  async register() {
     if (this.password !== this.confirmPassword) {
       console.error('Passwords do not match');
       // Handle password mismatch
       return;
     }
-
+    const loader = await this.loadingController.create({
+      message: 'Registring YOU...',
+      cssClass: 'custom-loader-class',
+    });
+    await loader.present();
+    this.profilePictureUrl = await this.uploadImage(this.image.base64String);
     this.auth
       .createUserWithEmailAndPassword(this.email, this.password)
       .then(async (userCredential) => {
-        const loader = await this.loadingController.create({
-          message: 'Registring YOU...',
-          cssClass: 'custom-loader-class',
-        });
-        await loader.present();
+     
+  
+   
 
-        this.db
-          .collection('users').doc(this.email)
+     await   this.db
+          .collection('users')
+          .doc(this.email)
           .set({
             email: this.email,
             firstName: this.firstName,
             lastName: this.lastName,
             phoneNumber: this.phoneNumber,
-          
+            profilePictureUrl: this.profilePictureUrl 
           })
           .then(() => {
             loader.dismiss();
@@ -78,10 +110,10 @@ export class SignUpPage implements OnInit {
           .catch((error) => {
             loader.dismiss();
             console.error('Error adding document: ', error);
-          
           });
       })
       .catch((error: any) => {
+        loader.dismiss();
         console.error('Registration error:', error);
       });
   }

@@ -1,0 +1,74 @@
+/* src/app/register/register.component.scss */
+
+ion-header {
+    --background: #28a745; /* Header background color (green) */
+    ion-toolbar {
+      --color: #fff; /* Toolbar text color */
+    }
+  }
+  
+  ion-content {
+    --background: #f8f9fa; /* Light gray background */
+  }
+  
+  ion-card {
+    margin-bottom: 16px;
+  
+    ion-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      ion-label {
+        color: #495057; /* Label text color */
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+  
+      ion-button {
+        --background: #007bff; /* Button background color */
+        --color: #fff; /* Button text color */
+        margin-bottom: 16px;
+      }
+  
+      img {
+        max-width: 100%;
+        border-radius: 8px; /* Optional: Add rounded corners to the image */
+        margin-top: 8px;
+      }
+    }
+  }
+  
+  ion-item {
+    margin-bottom: 16px;
+  
+    ion-label {
+      color: #495057; /* Label text color */
+      font-size: 14px;
+    }
+  
+    ion-input {
+      border: 1px solid #ced4da; /* Input border color */
+      border-radius: 4px;
+      padding: 8px;
+    }
+  }
+  
+  ion-button {
+    --background: #28a745; /* Button background color (green) */
+    --color: #fff; /* Button text color */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+  
+    &:hover {
+      --background: #218838; /* Darker background color on hover */
+    }
+  
+    &.secondary {
+      --background: #007bff; /* Secondary button background color (blue) */
+  
+      &:hover {
+        --background: #0056b3; /* Darker background color on hover */
+      }
+    }
+  }
+  

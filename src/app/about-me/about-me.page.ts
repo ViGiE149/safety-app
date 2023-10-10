@@ -37,7 +37,7 @@ export class AboutMePage implements OnInit {
     const user = await this.auth.currentUser;
 
     if (user?.email) {
-    this.db.collection('profiles').doc(user.email).set(profileData)
+    this.db.collection('users').doc(user.email).update(profileData)
       .then(() => {
         console.log('Profile Saved Successfully');
       })

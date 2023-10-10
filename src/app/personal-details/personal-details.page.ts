@@ -52,6 +52,9 @@ export class PersonalDetailsPage implements OnInit {
       this.router.navigateByUrl ('/faq');
   
   }
+  goToCheckMe(){
+    this.router.navigateByUrl ('/check');
+  }
   goToEmergencyInfor(){
     this.router.navigateByUrl ('/emergency-information');
   }
@@ -78,9 +81,10 @@ export class PersonalDetailsPage implements OnInit {
     if (user) {
       this.userSubscription = this.db.collection('users', ref => ref.where('email', '==', user.email))
         .valueChanges()
-        .subscribe(data => {
+        .subscribe((data:any) => {
           console.log(data);
           this.tableData = data;
+          this.profilePicture=this.tableData[0].profilePictureUrl;
         });
     } else {
       // Handle the case when the user is not logged in

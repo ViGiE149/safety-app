@@ -1,0 +1,45 @@
+/* src/app/about-me/about-me.component.scss */
+
+ion-header[translucent="true"] {
+  --background: #007bff; /* Header background color (blue) */
+  ion-toolbar {
+    --color: #fff; /* Toolbar text color */
+  }
+
+  ion-back-button {
+    --color: #fff; /* Back button icon color */
+  }
+ 
+  ion-buttons[slot="end"] {
+    --color: #fff; /* End slot buttons text color */
+  }
+}
+
+ion-content.ion-padding {
+  --background: #f8f9fa; /* Light gray background */
+}
+
+ion-list {
+  ion-item {
+    ion-label {
+      color: #495057; /* Label text color */
+      font-size: 16px;
+    }
+
+   
+  }
+}
+
+ion-button[slot="end"] {
+  --background: #007bff; /* Button background color (blue) */
+  --color: #fff; /* Button text color */
+  transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+
+  &:hover {
+    --background: #0056b3; /* Darker background color on hover */
+  }
+}
+ion-title {
+    width: 100%;
+    text-align: center; /* Center the text */
+  }

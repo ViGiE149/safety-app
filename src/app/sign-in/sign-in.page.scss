@@ -1,0 +1,75 @@
+/* src/app/login/login.component.scss */
+
+ion-header {
+    --background: #007bff; /* Header background color */
+    ion-toolbar {
+      --color: #fff; /* Toolbar text color */
+    }
+  }
+  
+  ion-content {
+    --background: #f8f9fa; /* Light gray background */
+  }
+  
+  #login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 100% of the viewport height */
+  }
+  
+  .image-container {
+    margin-bottom: 24px;
+    width: 100%;
+    text-align: center;
+  
+    img {
+      max-width: 100%;
+      border-radius: 8px; /* Optional: Add rounded corners to the image */
+      transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+      &:hover {
+        transform: scale(1.1); /* Enlarge the image on hover */
+      }
+    }
+  }
+  
+  ion-item {
+    margin-bottom: 16px;
+  width: 99%;
+
+    ion-label {
+      color: #495057; /* Label text color */
+      font-size: 14px;
+    }
+  
+    ion-input {
+      border: 1px solid #ced4da; /* Input border color */
+      border-radius: 4px;
+      padding: 8px;
+    }
+  }
+  
+  ion-button {
+    --background: #007bff; /* Button background color */
+    --color: #fff; /* Button text color */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+  width: 90%;
+    &:hover {
+      --background: #0056b3; /* Darker background color on hover */
+    }
+  }
+  
+  #signup-button {
+    --background: #007bff; /* Button background color */
+    --color: #fff; /* Button text color */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+  
+    &:hover {
+      --background: #0056b3; /* Darker background color on hover */
+    }
+  }
+  #forgot-password {
+    --color: #007bff; /* Link text color */
+    margin-top: 8px;
+  }

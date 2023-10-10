@@ -70,6 +70,10 @@ const routes: Routes = [
     path: 'addresses',
     loadChildren: () => import('./addresses/addresses.module').then( m => m.AddressesPageModule)
   },
+  {
+    path: 'check',
+    loadChildren: () => import('./check/check.module').then( m => m.CheckPageModule)
+  },
 
 
 ];

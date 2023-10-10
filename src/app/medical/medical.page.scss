@@ -1,0 +1,58 @@
+/* src/app/medical-info/medical-info.component.scss */
+
+ion-header[translucent="true"] {
+    --background: #007bff; /* Header background color (blue) */
+    ion-toolbar {
+      --color: #fff; /* Toolbar text color */
+    }
+  
+    ion-back-button {
+      --color: #fff; /* Back button icon color */
+    }
+  
+    ion-title {
+      width: 100%;
+      text-align: center; /* Center the text */
+    }
+  
+    ion-buttons[slot="end"] {
+      --color: #fff; /* End slot buttons text color */
+    }
+  }
+  
+  ion-content.ion-padding {
+    --background: #f8f9fa; /* Light gray background */
+  }
+  
+  ion-list {
+    ion-item {
+      ion-label {
+        color: #495057; /* Label text color */
+        font-size: 16px;
+      }
+  
+      ion-toggle {
+        --background: #007bff; /* Toggle button background color (blue) */
+        --handle-background: #fff; /* Toggle handle background color (white) */
+      }
+  
+      ion-input,
+      ion-textarea,
+      ion-select {
+        border: 1px solid #ced4da; /* Input, textarea, and select border color */
+        border-radius: 4px;
+        padding: 8px;
+      }
+    }
+  }
+  
+  ion-button[slot="end"] {
+    --background: #007bff; /* Button background color (blue) */
+    --color: #fff; /* Button text color */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+  
+    &:hover {
+      --background: #0056b3; /* Darker background color on hover */
+    }
+  }
+  

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Timer
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">What are you doing?</ion-label>
+    <ion-textarea placeholder="Enter your task"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Set time (seconds)</ion-label>
+    <ion-input [(ngModel)]="timerValue" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="startTimer()" [disabled]="timerRunning">Start</ion-button>
+  <ion-button (click)="stopTimer()" [disabled]="!timerRunning">Stop</ion-button>
+
+  <ion-card>
+    
+    <ion-card-content>
+      Welcome to the Task Timer! This page allows you to set a timer for your tasks. Enter the task description,
+      set the time, and start the timer. If the timer runs out, an email will be sent to notify someone close to you.
+    </ion-card-content>
+  </ion-card>
+</ion-content>

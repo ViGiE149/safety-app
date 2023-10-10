@@ -5,3 +5,99 @@
 
 
   
+/* src/app/profile/profile.component.scss */
+
+ion-header {
+  --background: #007bff; /* Header background color (blue) */
+  ion-toolbar {
+    --color: #fff; /* Toolbar text color */
+  }
+}
+
+ion-content {
+  --background: #f8f9fa; /* Light gray background */
+}
+
+ion-card {
+  margin-bottom: 16px;
+height: 150px;
+text-align: center;
+  ion-card-content {
+    display: flex;
+
+    align-items: center;
+
+    ion-avatar {
+      margin-bottom: 16px;
+      width: 120px;
+      height: 120px;
+    }
+
+    ion-label {
+      text-align: center;
+      h2 {
+        color: #343a40; /* Heading text color */
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      p {
+        color: #495057; /* Paragraph text color */
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+ion-list {
+  ion-item {
+    ion-label {
+      color: #495057; /* Label text color */
+      font-size: 16px;
+    }
+    ion-icon {
+      color: #6c757d; /* Icon color */
+    }
+  }
+}
+
+ion-button {
+  --background: #dc3545; /* Button background color (red) */
+  --color: #fff; /* Button text color */
+  margin-top: 16px;
+  transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+
+  &:hover {
+    --background: #c82333; /* Darker background color on hover */
+  }
+}
+
+
+
+ion-fab-button {
+  --background: #007bff; /* FAB button background color (blue) */
+  color: #fff; /* FAB button icon color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+}
+
+ion-fab-list {
+  ion-fab-button {
+    --background: #007bff; /* FAB button background color (blue) */
+    color: #fff; /* FAB button icon color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+
+    &:hover {
+      --background: #0056b3; /* Darker background color on hover */
+    }
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    --background: #f8f9fa; /* Footer background color (light gray) */
+  }
+  ion-tab-button {
+    ion-icon {
+      color: #6c757d; /* Tab icon color */
+    }
+  }
+}

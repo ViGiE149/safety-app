@@ -18,9 +18,11 @@ export class LocationPage implements OnInit, OnDestroy {
   newMap!: GoogleMap;
   watchId: any | undefined;
   tableData: any;
-
+   accuracy:any;
+   boolAccuracy=false;
+  locationAccuracy: any;
   constructor(private db:AngularFirestore,private router:Router,private auth:AngularFireAuth) {
-    this.getDeviceData();
+  
   }
 
   ngOnInit() {}
@@ -32,12 +34,44 @@ export class LocationPage implements OnInit, OnDestroy {
     }
   }
 
-  ionViewDidEnter() {
-    this.createMap();
-    this.watchLocation();
+
+ async getLocAccuracy(){
+  const user = await this.auth.currentUser;
+
+  if (user?.email) {
+    const data = await this.db.collection('device').doc(user.email).valueChanges().toPromise();
+    this.accuracy = data;
+    if (this.accuracy) {
+      alert(   this.accuracy)
+      this.boolAccuracy = this.accuracy.accuracy;
+
+    }
+  } else {
+    // Handle the case when the user is not logged in
+    console.warn('User not logged in');
+  }
+}
+
+
+
+
+
+  
+  async ionViewDidEnter() {
+    try {
+    
+
+      this.createMap();
+      this.watchLocation();
+    } catch (error) {
+      console.error('Error in ionViewDidEnter:', error);
+     // this.presentErrorAlert('Error in ionViewDidEnter');
+    }
   }
 
   async createMap() {
+    // const storedAccuracy = localStorage.getItem('locationAccuracy');
+    // this.locationAccuracy = storedAccuracy !== null ? JSON.parse(storedAccuracy) : false;
     try {
       const geolocation = await Geolocation.getCurrentPosition({
         timeout: 1000,
@@ -74,20 +108,34 @@ export class LocationPage implements OnInit, OnDestroy {
   }
 
   async watchLocation() {
+       const storedAccuracy = localStorage.getItem('locationAccuracy');
+    this.locationAccuracy = storedAccuracy !== null ? JSON.parse(storedAccuracy) : false;
+   
     try {
       const watchOptions = {
-        enableHighAccuracy:this.tableData.accuracy,
-        timeout: 5000,
+        enableHighAccuracy:true,
+        timeout: 10000,
       };
 
       // Watch for changes in position and update the map
-      this.watchId = Geolocation.watchPosition(watchOptions, (position: any) => {
+      this.watchId = Geolocation.watchPosition(watchOptions, async (position: any) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
 
         // Update the map with the new position
        // this.newMap.setCamera( lat );
-     
+       this.newMap = await GoogleMap.create({
+        id: 'map-o',
+        element: this.mapRef.nativeElement,
+        apiKey: environment.mapsApiKey,
+        config: {
+          center: {
+            lat: lat,
+            lng: lng,
+          },
+          zoom: 15,
+        },
+      });
 
         // Clear existing markers and add a new one at the updated position
         //this.newMap.clear();

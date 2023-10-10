@@ -1,14 +1,46 @@
 /* src/app/email-support/email-support.component.scss */
+/* src/app/email-support/email-support.component.scss */
 
 ion-content {
-    padding: 20px;
+  padding: 20px;
+
+  /* Add animation */
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in-out forwards;
+}
+
+ion-item {
+  margin-bottom: 15px;
+
+  /* Add shadow effect */
+  ion-input,
+  ion-textarea {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
-  ion-item {
-    margin-bottom: 15px;
+}
+
+ion-button {
+  width: 100%;
+
+  /* Add shadow effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover animation */
+ion-button:hover {
+  transform: scale(1.05); /* Scale up by 5% on hover */
+}
+
+/* Animation styles */
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
   }
-  
-  ion-button {
-    width: 100%;
+  to {
+    opacity: 1;
   }
-  
+}
+ion-title {
+  width: 87%;
+  text-align: center; /* Center the text */
+}

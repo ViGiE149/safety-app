@@ -26,38 +26,48 @@ export class AddressesPage implements OnInit {
       homeAddress: this.homeAddress,
       workAddress: this.workAddress,
     };
+
     const user = await this.auth.currentUser;
 
     if (user?.email) {
-    // Add logic to save the user's address information to Firestore
-    this.db.collection('users').doc(user.email).update(addressData)
-      .then(docRef => {
-      
-      alert('updated');
-
-
-      this.getAddresses();
-
-      })
-      .catch(error => {
-        console.error('Error adding document: ', error);
-      });}
-      else {
-        // Handle the case when the user is not logged in
-        console.warn('User not logged in');
-      }
-     
+      this.db
+        .collection('users')
+        .doc(user.email)
+        .update(addressData)
+        .then((docRef: any) => {
+          alert('saved');
+        })
+        .catch((error) => {
+          console.error('Error updating document: ', error);
+        });
+    } else {
+      console.warn('User not logged in');
+    }
   }
 
+  async getAddresses() {
+    const user = await this.auth.currentUser;
 
-  getAddresses() {
-    // Fetch the addresses from Firestore
-    this.db.collection('users').valueChanges().subscribe((data:any) =>{
-      this.addresses = data;
+    if (user?.email) {
+      this.db
+        .collection('users')
+        .doc(user.email)
+        .valueChanges()
+        .subscribe((data: any) => {
+          console.log(data);
+          this.addresses=data;
+          if (this.addresses) {
+            // Convert the object to an array
+            this.homeAddress  = this.addresses.homeAddress;
+            this.workAddress =   this.addresses.workAddress;
 
-
-    });
+          }
+        });
+    } else {
+      console.warn('User not logged in');
+    }
   }
+  
   }
 
 

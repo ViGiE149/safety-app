@@ -9,14 +9,14 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-radio-group [(ngModel)]="locationAccuracy">
+    <ion-radio-group [(ngModel)]="locationAccuracy" (ionChange)="onLocationAccuracyChange()">
       <ion-list-header>
         Location Accuracy
       </ion-list-header>
  
   
       <ion-list>
-        <ion-radio slot="start" value="high">High Accuracy</ion-radio>
+        <ion-radio slot="start" value="true">High Accuracy</ion-radio>
         <ion-card>
           <ion-card-content> 
           High Accuracy
@@ -26,7 +26,7 @@
       </ion-list>
    <hr>
       <ion-list>
-        <ion-radio slot="start" value="balanced">High Accuracy</ion-radio>
+        <ion-radio slot="start" value="false">High Accuracy</ion-radio>
         <ion-card>
         
         <ion-card-content>                                                   

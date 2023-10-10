@@ -25,7 +25,7 @@ export class MedicalPage implements OnInit {
   hasMedicalConditions: boolean = false;
   medicalConditions: any;
 
-  saveMedicalInfo() {
+  async saveMedicalInfo() {
     const medicalData = {
       hasMedicalInsurance: this.hasMedicalInsurance,
       insuranceScheme: this.insuranceScheme || null,
@@ -35,24 +35,36 @@ export class MedicalPage implements OnInit {
       hasMedicalConditions: this.hasMedicalConditions,
       medicalConditions: this.medicalConditions || null,
     };
+    const user = await this.auth.currentUser;
 
+    if (user?.email) {
     // Upload to Firestore
-    this.db.collection('users').add(medicalData)
+    this.db.collection('users').doc(user.email).update(medicalData)
       .then(() => {
         console.log('Medical Information Saved Successfully');
         // After saving, fetch and display the saved data
+        alert("saved");
         this.retrieveMedicalInfo();
       })
       .catch((error:any) => {
         console.error('Error saving medical information: ', error);
       });
+    } else {
+      // Handle the case when the user is not logged in
+      console.warn('User not logged in');
+    }
   }
 
-  retrieveMedicalInfo() {
+  async retrieveMedicalInfo() {
+
+
+    const user = await this.auth.currentUser;
+
+    if (user?.email) {
     // Retrieve medical information from Firestore
-    this.db.collection('users').valueChanges().subscribe(data => {
-      if (data.length > 0) {
-       this.latestData = data[data.length - 1];
+    this.db.collection('users').doc(user.email).valueChanges().subscribe((data:any) => {
+      if (data) {
+       this.latestData = data;
         this.hasMedicalInsurance = this.latestData.hasMedicalInsurance;
         this.insuranceScheme = this.latestData.insuranceScheme;
         this.insurancePlan = this.latestData.insurancePlan;
@@ -60,7 +72,16 @@ export class MedicalPage implements OnInit {
         this.bloodType = this.latestData.bloodType;
         this.hasMedicalConditions = this.latestData.hasMedicalConditions;
         this.medicalConditions = this.latestData.medicalConditions;
+        console.log(this.latestData);
       }
     });
+
+   } else {
+      // Handle the case when the user is not logged in
+      console.warn('User not logged in');
+    }
+
+
+
   }
 }

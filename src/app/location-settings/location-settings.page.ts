@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-location-settings',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./location-settings.page.scss'],
 })
 export class LocationSettingsPage implements OnInit {
-  locationAccuracy: string = 'high';
-  constructor() { }
+  locationAccuracy= 'false';
+  constructor(private db:AngularFirestore,private auth:AngularFireAuth) { 
+    //this.retrieveMedicalInfo();
+ }
+
+
 
   ngOnInit() {
   }
@@ -16,9 +22,26 @@ export class LocationSettingsPage implements OnInit {
  // Default to 'high' accuracy
 
   // Handle changes to the selected accuracy level
-  onLocationAccuracyChange() {
+  async onLocationAccuracyChange() {
     console.log('Selected Location Accuracy:', this.locationAccuracy);
-    // Here, you can update the location accuracy settings based on the user's selection.
-    // You can use the Geolocation API with different options depending on the selected value.
+    localStorage.setItem('locationAccuracy', JSON.stringify(this.locationAccuracy));
+    const user = await this.auth.currentUser;
+    
+    if (user?.email) {
+      this.db.collection('device').doc(user.email).update({
+        accuracy: this.locationAccuracy
+      }).then((response: any) => {
+       
+        // Handle success if needed
+      }).catch((error: any) => {
+        console.error('Error updating document:', error);
+      });
+    } else {
+      // Handle the case when the user is not logged in
+      console.warn('User not logged in');
+    }
   }
+  
+
+ 
 }
