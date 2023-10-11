@@ -50,7 +50,8 @@ const routes: Routes = [
   {
     path: 'term-and-conditions',
     loadChildren: () => import('./term-and-conditions/term-and-conditions.module').then( m => m.TermAndConditionsPageModule)
-  },  {
+  },
+  {
     path: 'communities',
     loadChildren: () => import('./communities/communities.module').then( m => m.CommunitiesPageModule)
   },
@@ -74,6 +75,11 @@ const routes: Routes = [
     path: 'check',
     loadChildren: () => import('./check/check.module').then( m => m.CheckPageModule)
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+ 
 
 
 ];
