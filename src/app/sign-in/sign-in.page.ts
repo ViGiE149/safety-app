@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
+// import { Device } from '@capacitor/device';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { NavController } from '@ionic/angular';
 export class SignInPage implements OnInit {
   email = '';
   password = '';
+  deviceInfo: any;
   constructor(
     public navCtrl: NavController,
     private router: Router,
@@ -24,12 +26,20 @@ export class SignInPage implements OnInit {
   ngOnInit() {}
 
   async login() {
+
+  
+
+
+
     const loader = await this.loadingController.create({
       message: 'Signing in',
       cssClass: 'custom-loader-class',
     });
     await loader.present();
-
+    // const info = await Device.getInfo();
+    // this.deviceInfo = info;      
+    
+    // console.log('Device information:', info);
     this.auth
       .signInWithEmailAndPassword(this.email, this.password)
       .then((userCredential) => {

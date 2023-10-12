@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LoadingController } from '@ionic/angular';
 import { error } from 'console';
+
 
 @Component({
   selector: 'app-medical',
@@ -11,7 +13,7 @@ import { error } from 'console';
 export class MedicalPage implements OnInit {
   latestData: any;
 
-  constructor(private db:AngularFirestore,private auth:AngularFireAuth) { 
+  constructor(  private loadingController: LoadingController,private db:AngularFirestore,private auth:AngularFireAuth) { 
      this.retrieveMedicalInfo();
   }
 
@@ -26,6 +28,12 @@ export class MedicalPage implements OnInit {
   medicalConditions: any;
 
   async saveMedicalInfo() {
+
+    const loader = await this.loadingController.create({
+      message: 'Saving medical data...',
+      cssClass: 'custom-loader-class',
+    });
+    await loader.present();
     const medicalData = {
       hasMedicalInsurance: this.hasMedicalInsurance,
       insuranceScheme: this.insuranceScheme || null,
@@ -41,15 +49,18 @@ export class MedicalPage implements OnInit {
     // Upload to Firestore
     this.db.collection('users').doc(user.email).update(medicalData)
       .then(() => {
+        loader.dismiss()
         console.log('Medical Information Saved Successfully');
         // After saving, fetch and display the saved data
         alert("saved");
         this.retrieveMedicalInfo();
       })
       .catch((error:any) => {
+        loader.dismiss()
         console.error('Error saving medical information: ', error);
       });
     } else {
+      loader.dismiss()
       // Handle the case when the user is not logged in
       console.warn('User not logged in');
     }

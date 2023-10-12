@@ -45,32 +45,56 @@
   
       <ng-container >
     
-        <ion-fab-list class="circular-fab-list" side="top">
-          <ion-fab-button color="primary" (click)="callNumber()">
-          
-            <ion-icon name="shield-outline"></ion-icon>
+        <ion-fab-list class="circular-fab-list0" side="top">
+          <ion-fab-button  fill="none" (click)="callNumber(0783648665)">
+            <ion-img
+            src="../assets/gun.png"
+            alt="crime call police button"
+          ></ion-img>
+            <!-- <ion-icon name="shield-outline"></ion-icon> -->
           </ion-fab-button>
+          <label for="">police</label>
         </ion-fab-list>
-        <ion-fab-list class="circular-fab-list" side="end">
-          <ion-fab-button color="tertiary">
-            <ion-icon name="chevron-forward"></ion-icon>
+
+        <ion-fab-list class="circular-fab-list1" side="top">
+          <ion-fab-button  fill="none"  (click)="callNumber(1111)">
+            <ion-img
+            src="../assets/fire.jpg"
+            alt="crime call police button"
+          ></ion-img>
+            <!-- <ion-icon name="shield-outline"></ion-icon> -->
           </ion-fab-button>
-          <ion-fab-button color="success">
-            <ion-icon name="chevron-forward"></ion-icon>
-          </ion-fab-button>
+          <label for="">fire</label>
         </ion-fab-list>
+
+        <ion-fab-list class="circular-fab-list" side="end" >
+          <ion-fab-button  size="large" (click)="callNumber(1111)">
+            <ion-img
+            src="../assets/ambulance.png"
+            alt="ambulance bottom"
+          ></ion-img>
+          </ion-fab-button>
+          <label class="NAAH" for="">ambulance</label>
+        </ion-fab-list>
+
         <ion-fab-list class="circular-fab-list" side="bottom">
-          <ion-fab-button color="warning">
-            <ion-icon name="chevron-down"></ion-icon>
+          <ion-fab-button (click)="callNumber(1111)">
+            <ion-img
+            src="../assets/fire.j"
+            alt="The Wisconsin State Capitol building in Madison, WI at night"
+          ></ion-img>
           </ion-fab-button>
+          <label for="">fire fighters</label>
         </ion-fab-list>
+
         <ion-fab-list class="circular-fab-list" side="start">
-          <ion-fab-button color="danger">
-            <ion-icon name="chevron-back"></ion-icon>
+          <ion-fab-button  (click)="callNumber(1111)">
+            <ion-img
+            src="../assets/accident.png"
+            alt="The Wisconsin State Capitol building in Madison, WI at night"
+             ></ion-img>
           </ion-fab-button>
-          <ion-fab-button class="circular-fab-list" color="dark">
-            <ion-icon name="chevron-back"></ion-icon>
-          </ion-fab-button>
+          <label  class="NAAH" for=""> NAAH</label>
         </ion-fab-list>
       </ng-container>
     </ion-fab>
@@ -95,12 +119,12 @@
       </ion-tab-button>
 
 
-    <ion-tab-button >
+    <ion-tab-button routerLink="/contacts">
       <ion-icon name="people"></ion-icon>
 
     </ion-tab-button>
-    <ion-tab-button >
-      <ion-icon name="person"></ion-icon>
+    <ion-tab-button routerLink="/profile">
+      <ion-icon name="person" ></ion-icon>
     
     </ion-tab-button>
   </ion-tab-bar>

@@ -74,7 +74,7 @@ ion-button {
 
 
 ion-fab-button {
-  --background: #007bff; /* FAB button background color (blue) */
+  /*--background: #007bff; /* FAB button background color (blue) */
   color: #fff; /* FAB button icon color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
 }
@@ -96,8 +96,22 @@ ion-footer {
     --background: #f8f9fa; /* Footer background color (light gray) */
   }
   ion-tab-button {
+ 
     ion-icon {
       color: #6c757d; /* Tab icon color */
     }
   }
 }
+.circular-fab-list0{
+transform: translateX(30px);
+
+}
+.circular-fab-list1{
+  transform: translateX(-30px);
+  
+  }
+  .NAAH{
+  color:#0e0d0d;
+ font-weight: bold;
+ background-color: rgb(253, 253, 251);
+  }

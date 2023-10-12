@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personal-details"></ion-back-button>
+    </ion-buttons>
+    <ion-title>contacts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let contact of contacts">
+      <ion-label>
+        <h2>{{ contact.name }}</h2>
+        <p>{{ contact.email }}</p>
+      </ion-label>
+      <ion-button (click)="deleteContact(contact.id)" slot="end">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input [(ngModel)]="newName" placeholder="Enter name"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input [(ngModel)]="newEmail" type="email" placeholder="Enter email"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addContact()">Add Contact</ion-button>
+</ion-content>

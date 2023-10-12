@@ -70,8 +70,8 @@ export class PersonalDetailsPage implements OnInit {
     this.router.navigateByUrl ('/location-settings');
   }
 
-  callNumber(): void {
-    const phoneNumber = '0783648665'; // Replace with your actual phone number
+  callNumber(number:any): void {
+    const phoneNumber = number; // Replace with your actual phone number
     window.location.href = `tel:${phoneNumber}`;
   }
 

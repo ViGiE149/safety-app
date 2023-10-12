@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-about-me',
@@ -9,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class AboutMePage implements OnInit {
 
-  constructor(private db:AngularFirestore,private auth:AngularFireAuth) { 
+  constructor(  private loadingController: LoadingController,private db:AngularFirestore,private auth:AngularFireAuth) { 
     //this.retrieveMedicalInfo();
  }
 
@@ -26,6 +27,11 @@ export class AboutMePage implements OnInit {
   }
 
   async saveProfile() {
+    const loader = await this.loadingController.create({
+      message: 'Saving your infor...',
+      cssClass: 'custom-loader-class',
+    });
+    await loader.present();
     const profileData = {
       fullName: this.fullName,
       gender: this.gender,
@@ -39,12 +45,15 @@ export class AboutMePage implements OnInit {
     if (user?.email) {
     this.db.collection('users').doc(user.email).update(profileData)
       .then(() => {
+        loader.dismiss()
         console.log('Profile Saved Successfully');
       })
       .catch(error => {
+        loader.dismiss()
         console.error('Error saving profile: ', error);
       });
     } else {
+      loader.dismiss()
       // Handle the case when the user is not logged in
       console.warn('User not logged in');
     }

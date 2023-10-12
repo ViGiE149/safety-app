@@ -1,0 +1,42 @@
+/* contacts.page.scss */
+ion-content {
+    --ion-background-color: #f4f4f4;
+  }
+  
+  ion-item {
+    background-color: #fff;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  ion-list {
+    margin: 10px;
+  }
+  
+  ion-item ion-label h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  ion-item ion-label p {
+    color: #808080;
+  }
+  
+  ion-item ion-button {
+    --color: #ff4500;
+  }
+  
+  ion-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  ion-item ion-input {
+    margin-bottom: 10px;
+  }
+  
+  ion-button {
+    margin-top: 10px;
+  }
+  
+  

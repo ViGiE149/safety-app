@@ -1,0 +1,90 @@
+/* profile.page.scss */
+
+ion-content {
+    --background: #f2f2f2;
+  }
+  
+  ion-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    overflow: hidden;
+  }
+  
+  ion-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  ion-avatar {
+    margin: 20px;
+    height: 150px;
+  }
+  
+  ion-label {
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  ion-input {
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 100%;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  ion-button {
+    --background: #3498db;
+    --color: #fff;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  ion-img {
+    border-radius: 50%;
+    height: 100%;
+    width: 180px;
+    border: 5px solid #3498db;
+    margin-bottom: 20px;
+  }
+  
+  /* Optional: Add a hover effect on the avatar */
+  ion-avatar:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 600px) {
+    ion-card {
+      margin: 10px;
+    }
+  
+    ion-card-content {
+      padding: 10px;
+    }
+  
+    ion-input {
+      font-size: 0.9rem;
+      margin-top: 6px;
+    
+    }
+  
+    ion-button {
+      margin-top: 10px;
+    }
+  }
+  ion-item{
+    width: 98%;
+  }
+  
