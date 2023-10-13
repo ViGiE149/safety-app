@@ -23,8 +23,9 @@ ion-header {
     margin-bottom: 24px;
     width: 100%;
     text-align: center;
-  
+ 
     img {
+      height: 340px;
       max-width: 100%;
       border-radius: 8px; /* Optional: Add rounded corners to the image */
       transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
@@ -48,6 +49,7 @@ ion-header {
       border: 1px solid #ced4da; /* Input border color */
       border-radius: 4px;
       padding: 8px;
+      height: 70px;
     }
   }
   
@@ -74,4 +76,10 @@ ion-header {
     --color: #007bff; /* Link text color */
     margin-top: 8px;
   }
-  
+  ion-input {
+    margin-top: 6px;
+    border: 1px solid #ced4da; /* Input border color */
+    border-radius: 4px;
+    padding: 8px;
+    height: 0px;
+  }

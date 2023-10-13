@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './location.page.html',
   styleUrls: ['./location.page.scss'],
 })
-export class LocationPage implements OnInit, OnDestroy {
+export class LocationPage implements OnInit {
   @ViewChild('map') mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
   watchId: any | undefined;
@@ -25,7 +25,7 @@ export class LocationPage implements OnInit, OnDestroy {
   
   }
 
-  ngOnInit() {}
+   ngOnInit() {}
 
   ngOnDestroy() {
     // Stop watching for location changes when the component is destroyed
