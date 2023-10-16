@@ -46,20 +46,20 @@
       <ng-container >
     
         <ion-fab-list class="circular-fab-list0" side="top">
-          <ion-fab-button  fill="none" (click)="callNumber(0783648665)">
+          <ion-fab-button  fill="none" (click)="report('crime')">
             <ion-img
             src="../assets/gun.png"
             alt="crime call police button"
           ></ion-img>
             <!-- <ion-icon name="shield-outline"></ion-icon> -->
           </ion-fab-button>
-          <label for="">police</label>
+ 
         </ion-fab-list>
 
         <ion-fab-list class="circular-fab-list1" side="top">
-          <ion-fab-button  fill="none"  (click)="callNumber(1111)">
+          <ion-fab-button  fill="none"  (click)="report('fire')">
             <ion-img
-            src="../assets/fire.jpg"
+            src="../assets/fire.png"
             alt="crime call police button"
           ></ion-img>
             <!-- <ion-icon name="shield-outline"></ion-icon> -->
@@ -68,33 +68,33 @@
         </ion-fab-list>
 
         <ion-fab-list class="circular-fab-list" side="end" >
-          <ion-fab-button  size="large" (click)="callNumber(1111)">
+          <ion-fab-button  size="large" (click)="report('ambulance')">
             <ion-img
             src="../assets/ambulance.png"
             alt="ambulance bottom"
           ></ion-img>
           </ion-fab-button>
-          <label class="NAAH" for="">ambulance</label>
+         
         </ion-fab-list>
 
         <ion-fab-list class="circular-fab-list" side="bottom">
-          <ion-fab-button (click)="callNumber(1111)">
+          <ion-fab-button (click)="report('fire')">
             <ion-img
             src="../assets/fire.j"
             alt="The Wisconsin State Capitol building in Madison, WI at night"
           ></ion-img>
           </ion-fab-button>
-          <label for="">fire fighters</label>
+         
         </ion-fab-list>
 
         <ion-fab-list class="circular-fab-list" side="start">
-          <ion-fab-button  (click)="callNumber(1111)">
+          <ion-fab-button  (click)="report('accident')">
             <ion-img
             src="../assets/accident.png"
             alt="The Wisconsin State Capitol building in Madison, WI at night"
              ></ion-img>
           </ion-fab-button>
-          <label  class="NAAH" for=""> NAAH</label>
+          
         </ion-fab-list>
       </ng-container>
     </ion-fab>

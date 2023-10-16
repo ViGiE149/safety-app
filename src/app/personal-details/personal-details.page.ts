@@ -30,7 +30,7 @@ export class PersonalDetailsPage implements OnInit {
     // For example, return different icons for each direction
     return direction === 'top' ? 'arrow-up' : 'arrow-forward';
   }
-  constructor(private db:AngularFirestore,private router:Router,private auth:AngularFireAuth) {this.getUser(); }
+  constructor(private db:AngularFirestore,private router:Router,private auth:AngularFireAuth,private loadingController: LoadingController) {this.getUser(); }
 
   ngOnInit() {
   }
@@ -38,8 +38,8 @@ export class PersonalDetailsPage implements OnInit {
   async shareWithFriends(){
     await Share.share({
       title: 'Stay Safe',
-      text: 'Really awesome thing you need to see right meow',
-      url: 'http://ionicframework.com/',
+      text: 'Really awesome thing you need to see right ',
+      url: 'http://safetyApp.com/',
       dialogTitle: 'Share with buddies',
     });
 
@@ -73,7 +73,40 @@ export class PersonalDetailsPage implements OnInit {
   callNumber(number:any): void {
     const phoneNumber = number; // Replace with your actual phone number
     window.location.href = `tel:${phoneNumber}`;
+
+
+
+
+
   }
+ async report(type:any) {
+
+    const loader = await this.loadingController.create({
+      message: 'reporting...',
+      cssClass: 'custom-loader-class',
+    });
+    await loader.present();
+    const reportData = {
+      usersInfor:this.tableData,
+      date:new Date(),
+      reportType:type
+    };
+ 
+    // Upload to Firestore
+    this.db.collection('reports').add(reportData)
+      .then(() => {
+        loader.dismiss()
+        //console.log('Medical Information Saved Successfully');
+        // After saving, fetch and display the saved data
+        alert("report has been made you recieve a call shortly");
+        //this.retrieveMedicalInfo();
+      })
+      .catch((error:any) => {
+        loader.dismiss()
+        console.error('Error saving medical information: ', error);
+      });
+  }
+
 
   async getUser() {
     const user = await this.auth.currentUser;

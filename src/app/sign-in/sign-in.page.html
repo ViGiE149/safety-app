@@ -1,19 +1,19 @@
-
-<ion-content  scrollY="false"  keyboard-attach>
+<ion-content>
   <div id="login-container">
     <div class="image-container">
       <img src="../../assets/wellcome.jpeg" alt="Welcome Image" />
     </div>
 
-   
+
+    <div class="input-div">
       <ion-label position="stacked">Email</ion-label>
-      <ion-input [(ngModel)]="email" type="email"></ion-input>
+      <ion-input class="custom-input" [(ngModel)]="email" type="email"></ion-input>
 
 
 
-      <ion-label position="stacked">Password</ion-label>
+      <ion-label class="custom-input" position="stacked">Password</ion-label>
       <ion-input [(ngModel)]="password" type="password"></ion-input>
-
+    </div>
     <ion-button expand="block" (click)="login()">Login</ion-button>
 
     <ion-button id="signup-button" color="medium" expand="full" routerLink="/sign-up">Don't have an account? Sign Up</ion-button>

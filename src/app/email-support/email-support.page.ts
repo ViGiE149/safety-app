@@ -19,28 +19,28 @@ export class EmailSupportPage implements OnInit {
 
   sendEmail(): void {
     const templateParams = {
-      to_email: 'recipient@example.com', // Replace with the recipient's email address
+      to_email: 'lethokuhleandile08@gmail.com', // Replace with the recipient's email address
       subject: this.emailSubject,
       message: this.emailMessage,
     };
 
     emailjs.send(
-      'your_emailjs_service_id',
-      'your_emailjs_template_id',
+      'service_iht2ej9',
+      'template_4x42kil',
       templateParams,
-      'your_emailjs_user_id'
+      'sdec_-eHbbd95KUHJ'
     ).then(
       (response: EmailJSResponseStatus) => {
-        console.log('Email sent successfully:', response);
+      alert('Email sent successfully');
         // Handle success, e.g., show a success message to the user
       },
       (error :any) => {
         console.error('Email failed to send:', error);
         // Handle error, e.g., show an error message to the user
+        alert(console.error);
       }
     );
   }
-
 
 
 

@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
-// import { Device } from '@capacitor/device';
+import { Device } from '@capacitor/device';
 
 
 @Component({
@@ -29,7 +29,12 @@ export class SignInPage implements OnInit {
 
   
 
-
+      const infor = await Device.getInfo();
+    
+      const id =await Device.getId();
+ 
+console.log(id.identifier);
+console.log(infor);
 
     const loader = await this.loadingController.create({
       message: 'Signing in',

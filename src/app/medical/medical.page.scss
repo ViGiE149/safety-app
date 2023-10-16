@@ -56,4 +56,7 @@ ion-header[translucent="true"] {
       --background: #0056b3; /* Darker background color on hover */
     }
   }
-  
+  ion-title {
+    width: 100%;
+    text-align: center; /* Center the text */
+  }

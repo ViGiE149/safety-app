@@ -9,10 +9,10 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
-  groupId: string | undefined;
-  messages:any;
-  newMessage: string = '';
-  currentUser: any; // Assuming you have a user object
+  // groupId: string | undefined;
+  // messages:any;
+  // newMessage: string = '';
+  // currentUser: any; // Assuming you have a user object
 
   constructor(
     private route: ActivatedRoute,
@@ -21,40 +21,40 @@ export class ChatPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.getCurrentUser().subscribe((user: any) => {
-      this.currentUser = user;
-    });
+    // this.authService.getCurrentUser().subscribe((user: any) => {
+    //   this.currentUser = user;
+    // });
 
-    this.route.params.subscribe((params: { [x: string]: string; }) => {
-      this.groupId = params['groupId'];
-      this.loadMessages();
-    });
+    // this.route.params.subscribe((params: { [x: string]: string; }) => {
+    //   this.groupId = params['groupId'];
+    //   this.loadMessages();
+    // });
   }
 
-  loadMessages() {
-    this.messages = this.firestore
-      .collection("groups", (ref) => ref.orderBy('timestamp'))
-      .valueChanges();
-  }
+  // loadMessages() {
+  //   this.messages = this.firestore
+  //     .collection("groups", (ref) => ref.orderBy('timestamp'))
+  //     .valueChanges();
+  // }
 
-  sendMessage() {
-    if (this.newMessage.trim() !== '') {
-      // Replace 'user123' with the actual user ID
-      const userId = 'user123';
-      //`groups/${this.groupId}/messages`
-      // Add the message to the group's messages in Firestore
-      this.firestore
-        .collection('groups')
-        .add({
-          message: this.newMessage,
-          userId,
-          timestamp: new Date(),
-        })
-        .then(() => {
-          this.newMessage = ''; // Clear the input field after sending the message
-        })
-        .catch((error) => console.error('Error sending message:', error));
-    }
-  }
+  // sendMessage() {
+  //   if (this.newMessage.trim() !== '') {
+  //     // Replace 'user123' with the actual user ID
+  //     const userId = 'user123';
+  //     //`groups/${this.groupId}/messages`
+  //     // Add the message to the group's messages in Firestore
+  //     this.firestore
+  //       .collection('groups')
+  //       .add({
+  //         message: this.newMessage,
+  //         userId,
+  //         timestamp: new Date(),
+  //       })
+  //       .then(() => {
+  //         this.newMessage = ''; // Clear the input field after sending the message
+  //       })
+  //       .catch((error) => console.error('Error sending message:', error));
+  //   }
+  // }
 }
 
